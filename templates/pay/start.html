@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--this is the start page for Lin Pay. -->
+<html lang="en" ng-app="lin.pay" class="ng-scope">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <title>Lin Pay</title>
+        
+        <style>
+        /*style from http://nevcal.com/eclectic/UltimateScrollingTable.html need some clean up later */
+        body {
+        color: #000000;
+        background-color: #fff8dc;
+        margin: 0;
+        padding: 0;
+        }
+        tr:nth-child(even)
+        {
+        background: #eeeeee;
+        }
+        
+        th, .th, .sth
+        {
+        color: #000000;
+        background-color: #A9A9A9;
+        text-align: center;
+        }
+        td, .std
+        {
+        text-align: left;
+        vertical-align: middle;
+        }
+        
+        .purp
+        {
+        color: #cc33cc;
+        }
+        .green
+        {
+        color: #33cc00;
+        }
+        .red
+        {
+        color: #cc3300;
+        }
+        .bkgold
+        {
+        background-color: #cc9933;
+        }
+        .faint
+        {
+        color: #808080;
+        }
+        table, .stab
+        {
+        empty-cells: show;
+        }
+        
+        /* make the TH elements pretty */
+        thead.fixedHeader th
+        {
+        background: #cc9966;
+        border-left: 1px solid #eebb88;
+        border-right: 1px solid #bb7744;
+        border-top: 1px solid #cc9966;
+        font-weight: normal;
+        padding: 4px 3px;
+        text-align: left
+        }
+        
+        /* make the A elements pretty. makes for nice clickable headers */
+        thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited
+        {
+        color: #ffffff;
+        text-decoration: none;
+        }
+        
+        /* make the A elements pretty. makes for nice clickable headers */
+        /* WARNING: swapping the background on hover may cause problems in WinIE 6.x */
+        thead.fixedHeader a:hover
+        {
+        color: #ffffff;
+        text-decoration: underline;
+        }
+        
+        /* define the table content to be scrollable */
+        tbody.scrollContent
+        {
+        overflow: auto;
+        }
+        
+        /* make TD elements pretty. Provide alternating classes for striping the table */
+        /* http://www.alistapart.com/articles/zebratables/ */
+        tbody.scrollContent td, tbody.scrollContent tr td
+        {
+        border-bottom: none;
+        border-left: none;
+        border-right: 1px solid #cccccc;
+        border-top: 1px solid #dddddd;
+        padding: 2px 3px 2px 4px
+        }
+        
+        tbody.scrollContent tr.altrow td
+        {
+        background: #eeeeee;
+        }
+        
+        .mnu ul
+        {
+        display: block;
+        list-style-type: none;
+        }
+        .mnu ul li, .mnu ul li ul li
+        {
+        line-height : 1.3em;
+        border:3px solid #cc9933;
+        border:3px solid rgba(204, 153, 51, 0.4);
+        border-radius:5px;
+        }
+        .mnu ul li
+        {
+        float: right;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        }
+        .mnu ul li ul
+        {
+        display: block;
+        list-style-type: none;
+        position: absolute;
+        visibility: hidden;
+        top: 100%;
+        right: 0;
+        width: 12em;
+        padding: 0;
+        margin: 0;
+        }
+        .mnu ul li:hover ul
+        {
+        visibility: visible;
+        }
+        .mnu ul li ul li
+        {
+        clear: both;
+        display: block;
+        padding: 0;
+        margin: 0;
+        }
+        .mnu a
+        {
+        display: block;
+        padding: .25em;
+        border: 1px solid black;
+        border-radius: 3px;
+        text-decoration: none;
+        background-color: #fff8dc;
+        }
+        .mnu a:hover
+        {
+        background-color: #cc9933;
+        }
+        
+        .stab
+        {
+        display: table;
+        table-layout: auto;
+        }
+        .sthd
+        {
+        display: table-header-group;
+        }
+        .stbd
+        {
+        display: table-row-group;
+        }
+        .stft
+        {
+        display: table-footer-group;
+        }
+        .str
+        {
+        display: table-row;
+        }
+        .stcg
+        {
+        display: table-column;
+        }
+        .sth
+        {
+        display: table-cell;
+        }
+        .std
+        {
+        display: table-cell;
+        }   
+        </style>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="span6 offset3">
+                    <h2>Lin Pay Test</h2>
+                    <!--
+                    {% if message %}
+                        <div class="alert alert-error clearfix">{{ message|safe }}</div>
+                    {% endif %}
+                    -->
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td style = "border: 1px solid black;">Bubble Tea ( Regular )</td>
+                    <td style = "border: 1px solid black;">Add picture? </td>
+                    <td style = "border: 1px solid black;">
+                        <!--prod-->
+                        <!--https://www.paypal.com/cgi-bin/webscr-->
+                        <!--Sandbox test-->
+                        <!--https://www.sandbox.paypal.com/cgi-bin/webscr-->
+                        <!--prod-->
+                        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="P47Q5DHJ9P5NW">
+                            <table>
+                                <tr><td><input type="hidden" name="on0" value="Size">Size</td></tr><tr><td><select name="os0">
+                                    <option value="S">S $4.50 USD</option>
+                                    <option value="M">M $5.00 USD</option>
+                                    <option value="L">L $5.50 USD</option>
+                                </select> </td></tr>
+                            </table>
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                        <!--Sandbox Test-->
+                    </td>
+                </tr>
+                <tr>
+                    <td style = "border: 1px solid black;">Bubble Tea (+bubble)</td>
+                    <td style = "border: 1px solid black;">Add picture? </td>
+                    <td style = "border: 1px solid black;">
+                        <!--prod-->
+                        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="NX5QPH8ZZGR8G">
+                            <table>
+                                <tr><td><input type="hidden" name="on0" value="Size">Size</td></tr><tr><td><select name="os0">
+                                    <option value="S">S $5.00 USD</option>
+                                    <option value="M">M $5.25 USD</option>
+                                    <option value="L">L $5.25 USD</option>
+                                </select> </td></tr>
+                            </table>
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                        <!--Sandbox Test-->
+                    </td>
+                </tr>
+                <tr>
+                    <td style = "border: 1px solid black;">Bubble Tea (No Bubble)</td>
+                    <td style = "border: 1px solid black;">Add picture? </td>
+                    <td style = "border: 1px solid black;">
+                        <!--prod-->
+                        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="UGR7ZA5DVT5N8">
+                            <table>
+                                <tr><td><input type="hidden" name="on0" value="Size">Size</td></tr><tr><td><select name="os0">
+                                    <option value="S">S $3.50 USD</option>
+                                    <option value="M">M $4.00 USD</option>
+                                    <option value="L">L $4.50 USD</option>
+                                </select> </td></tr>
+                            </table>
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                        <!--Sandbox Test-->
+                    </td>
+                </tr>
+            </table>
+	</div>
+    </body>
+</html>
